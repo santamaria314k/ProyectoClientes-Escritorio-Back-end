@@ -1,3 +1,5 @@
+/**
+ 
 package Controllers;
 
 import Models.ClientePotencial;
@@ -27,3 +29,5 @@ public class ClientePotencialController {
         ClienPoteService.ModificarDatosPotencial(id, opcion, dato);
     }
 }
+
+**/

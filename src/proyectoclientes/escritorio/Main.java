@@ -1,26 +1,26 @@
 package proyectoclientes.escritorio;
-
+/**
 //administador
 import Controllers.AdministradorController;
 import Models.Administrador;
 
 
-//empresa
-import Controllers.EmpresaController;
-import Models.Empresa;
-
 //cliente potencial
 import Models.ClientePotencial;
 import Controllers.ClientePotencialController;
+
+**/
 
 //cliente
 import Controllers.ClienteController;
 import Models.Cliente;
 
+//empresa
+import Controllers.EmpresaController;
+import Models.Empresa;
 
 
 import java.util.Scanner;
-
 
 import java.util.InputMismatchException;
 
@@ -32,13 +32,163 @@ public class Main {
 
     public static void main(String[] args) {
         
+       
+        
+        Scanner escanear = new Scanner(System.in);
+
+        //cliente ----------------------------vs5 & bd
+        
+        ClienteController clienteController = new ClienteController();
+        
+        String nombres = "";
+        String apellidoscli = "";
+        String celular = "";
+        String ocupacion = "";
+        int edad = 0;
+
+        try {
+            System.out.println("Ingrese los nombres del cliente: ");
+            nombres = escanear.nextLine();
+            
+            System.out.println("Ingrese los apellidos del cliente: ");
+            apellidoscli = escanear.nextLine();
+            
+            System.out.println("Ingrese el celular del cliente: ");
+            celular = escanear.nextLine();
+            
+            System.out.println("Ingrese la ocupacion del cliente: ");
+            ocupacion = escanear.nextLine();
+            
+            System.out.println("edad del cliente: ");
+            edad = escanear.nextInt();
+            
+            
+            Cliente clientess = new Cliente(0, nombres, apellidoscli, celular, ocupacion, edad);
+            clienteController.InsertarCliente(clientess);
+            clienteController.MostrarDatosCliente();
+
+            // modificar 
+            int idModificarcli;
+            int opcionModificarcli;
+            String info;
+            int edadModificar;
+
+            System.out.println("Ingrese el id del cliente que desea modificar: ");
+            idModificarcli = escanear.nextInt();
+           
+            System.out.println("Ingrese 1 para modificar nombres, 2 para apellidos, 3 para celular, 4 para ocupacion, 5 para edad: ");
+            opcionModificarcli = escanear.nextInt();
+            escanear.nextLine();
+
+            if(opcionModificarcli == 5){
+                System.out.println("Ingrese la edad: ");
+                edadModificar = escanear.nextInt();
+                clienteController.ModificarCliente(idModificarcli, opcionModificarcli, "", edadModificar);
+            } else {
+
+                System.out.println("Ingrese la informacion: ");
+                info = escanear.nextLine();
+                clienteController.ModificarCliente(idModificarcli, opcionModificarcli, info, 0);
+            }
+
+            clienteController.MostrarDatosCliente();
+
+            // eliminar
+            int idEliminarcli;
+
+            System.out.println("Ingrese el id del cliente a eliminar: ");
+            idEliminarcli = escanear.nextInt();
+            clienteController.EliminarRegistroCliente(idEliminarcli);
+            clienteController.MostrarDatosCliente();
+
+        } catch (InputMismatchException  e) {
+            System.out.println("Error: Ingresaste un tipo de dato incorrecto.");
+        } finally {
+
+            System.out.println("--------//------CLIENTE-FIN-------//---------");
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+             
+//Empresa --------------------------------vs5 & bd  
+
+ try {
+            
+            EmpresaController empresaControl = new EmpresaController();
+
+            int nitEmpresa;
+            String razonSocialEmpresa = "";
+            String telefonoEmpresa = "";
+            String actividadEmpresa = "";
+
+            System.out.println("Ingrese el nit: ");
+            nitEmpresa = escanear.nextInt();
+            System.out.println("Ingrese la razon social: ");
+            razonSocialEmpresa = escanear.next();
+            System.out.println("Ingrese su telefono: ");
+            telefonoEmpresa = escanear.next();
+            System.out.println("Ingrese su actividad: ");
+            actividadEmpresa = escanear.next();
+
+            Empresa empresa1 = new Empresa(nitEmpresa, razonSocialEmpresa, telefonoEmpresa, actividadEmpresa);
+            empresaControl.InsertarEmpresa(empresa1);
+            empresaControl.MostrarDatos();
+
+            String datoEmpresa;
+            int opcionModificacionEmpresa;
+            int nitModificacion;
+            int nitEliminar;
+
+            System.out.println("Ingrese el nit de la empresa que desea modificar: ");
+            nitModificacion = escanear.nextInt();
+            System.out.println("Ingrese 1 para modificar razon social, 2 para telefono, 3 para actividad: ");
+            opcionModificacionEmpresa = escanear.nextInt();
+            System.out.println("Ingrese el dato: ");
+            datoEmpresa = escanear.next();
+            escanear.nextLine();
+            empresaControl.ModificarEmpresa(nitModificacion, String.valueOf(opcionModificacionEmpresa), datoEmpresa);
+            empresaControl.MostrarDatos();
+            
+            
+            System.out.println("Ingrese el nit de la empresa a eliminar: ");
+            nitEliminar = escanear.nextInt();
+            empresaControl.EliminarRegistro(nitEliminar);
+            empresaControl.MostrarDatos();
+
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Ingresaste un tipo de dato incorrecto.");
+        } finally {
+             System.out.println("--------//------EMPRESA-FIN-------//---------");
+        }
+        
+           
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+        
+        /**
+        
         //administrador ----------------------------vs4
         
-        
-       
         ClientePotencialController ClientePotencialControl = new ClientePotencialController();
         AdministradorController adminControl = new AdministradorController();
-        Scanner leerDato = new Scanner(System.in);
         int id = 0;
         String dato = "";
         String nombre = "";
@@ -92,61 +242,21 @@ public class Main {
         adminControl.EliminarRegistro(idEliminar);
         adminControl.MostrarDatos();
         
+        **/
+        
+        
+    
         
         
         
-         
-//Empresa ----------------------------vs4
-
-//object controoller de empresa
-        EmpresaController empresaControl = new EmpresaController();
-
-        
-        int nitEmpresa;
-        String razonSocialEmpresa = "";
-        String telefonoEmpresa = "";
-        String actividadEmpresa = "";
-        
-        System.out.println("Ingrese el nit: ");
-        nitEmpresa = leerDato.nextInt();
-        System.out.println("Ingrese la razon social: ");
-        razonSocialEmpresa = leerDato.next();
-        System.out.println("Ingrese su telefono: ");
-        telefonoEmpresa = leerDato.next();
-        System.out.println("Ingrese su actividad: ");
-        actividadEmpresa = leerDato.next();
-        
-        Empresa empresa1 = new Empresa(nitEmpresa, razonSocialEmpresa, telefonoEmpresa, actividadEmpresa);
-        empresaControl.InsertarEmpresa(empresa1);
-        empresaControl.MostrarDatos();
-        
-        //modificar
-        String datoEmpresa;
-        int opcionModificacionEmpresa;
-        String nitModificacion;
-        String nitEliminar; 
-        
-       
-        System.out.println("Ingrese el nit de la empresa que desea modificar: ");
-        nitModificacion = leerDato.next();
-        System.out.println("Ingrese 1 para modificar razon social, 2 para telefono, 3 para actividad: ");
-        opcionModificacionEmpresa = leerDato.nextInt();
-        System.out.println("Ingrese el dato: ");
-        datoEmpresa = leerDato.next();
-        empresaControl.ModificarEmpresa(nitModificacion, opcionModificacionEmpresa, datoEmpresa);
-        empresaControl.MostrarDatos();
-        
-        //eliminar
-        
-        System.out.println("Ingrese el nit de la empresa a eliminar: ");
-        nitEliminar = leerDato.next();
-        empresaControl.EliminarRegistro(nitEliminar);
-        empresaControl.MostrarDatos();
-           
         
         
         
-          /*ClientePotencial  vs -------------------------------------------4*/
+        
+        
+        /**
+        
+          //ClientePotencial  vs -------------------------------------------4
         
         int idClientePotencial;
         String nombresClientePotencial = "";
@@ -198,82 +308,13 @@ public class Main {
         
         
         
-        
+        **/
         
         
         
         
         
      
-        //cliente ----------------------------vs5 & bd
-        
-     ClienteController clienteController = new ClienteController();
-        Scanner escanear = new Scanner(System.in);
-        String nombres = "";
-        String apellidoscli = "";
-        String celular = "";
-        String ocupacion = "";
-        int edad = 0;
-
-        try {
-            System.out.println("Ingrese los nombres del cliente: ");
-            nombres = escanear.nextLine();
-            System.out.println("Ingrese los apellidos del cliente: ");
-            apellidoscli = escanear.nextLine();
-            System.out.println("Ingrese el celular del cliente: ");
-            celular = escanear.nextLine();
-            System.out.println("Ingrese la ocupacion del cliente: ");
-            ocupacion = escanear.nextLine();
-            System.out.println("edad del cliente: ");
-            edad = escanear.nextInt();
-            escanear.nextLine();//limpiar buffer
-
-            Cliente clientess = new Cliente(0, nombres, apellidoscli, celular, ocupacion, edad);
-            clienteController.InsertarCliente(clientess);
-            clienteController.MostrarDatosCliente();
-
-            // modificar
-            int idModificarcli;
-            int opcionModificarcli;
-            String info;
-            int edadModificar;
-
-            System.out.println("Ingrese el id del cliente que desea modificar: ");
-            idModificarcli = escanear.nextInt();
-            escanear.nextLine();//limpiar buffer
-            System.out.println("Ingrese 1 para modificar nombres, 2 para apellidos, 3 para celular, 4 para ocupacion, 5 para edad: ");
-            opcionModificarcli = escanear.nextInt();
-            escanear.nextLine();//limpiar buffer
-
-            if(opcionModificarcli == 5){
-                System.out.println("Ingrese la edad: ");
-                edadModificar = escanear.nextInt();
-                clienteController.ModificarCliente(idModificarcli, opcionModificarcli, "", edadModificar);
-            } else {
-
-                System.out.println("Ingrese la informacion: ");
-                info = escanear.nextLine();
-                clienteController.ModificarCliente(idModificarcli, opcionModificarcli, info, 0);
-            }
-
-            clienteController.MostrarDatosCliente();
-
-            // eliminar
-            int idEliminarcli;
-
-            System.out.println("Ingrese el id del cliente a eliminar: ");
-            idEliminarcli = escanear.nextInt();
-            clienteController.EliminarRegistroCliente(idEliminarcli);
-            clienteController.MostrarDatosCliente();
-
-        } catch (InputMismatchException  e) {
-            System.out.println("Error: Ingresaste un tipo de dato incorrecto.");
-        } finally {
-            escanear.close();
-        }
-        
-        
-        
   
     
         
