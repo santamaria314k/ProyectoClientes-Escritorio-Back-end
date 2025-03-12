@@ -11,7 +11,7 @@ public class EmpresaController {
 }
     
     public void InsertarEmpresa(Empresa nuevaEmpresa){
-        EmpresaService.CrearEmpresa(nuevaEmpresa);
+        EmpresaService.RegistrarEmpresa(nuevaEmpresa);
     }
     
     public void MostrarDatos(){

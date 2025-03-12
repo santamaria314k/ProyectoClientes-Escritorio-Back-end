@@ -102,13 +102,13 @@ public class Main {
         EmpresaController empresaControl = new EmpresaController();
 
         
-        String nitEmpresa = "";
+        int nitEmpresa;
         String razonSocialEmpresa = "";
         String telefonoEmpresa = "";
         String actividadEmpresa = "";
         
         System.out.println("Ingrese el nit: ");
-        nitEmpresa = leerDato.next();
+        nitEmpresa = leerDato.nextInt();
         System.out.println("Ingrese la razon social: ");
         razonSocialEmpresa = leerDato.next();
         System.out.println("Ingrese su telefono: ");
