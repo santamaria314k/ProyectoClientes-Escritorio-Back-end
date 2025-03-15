@@ -15,12 +15,13 @@ CREATE TABLE Roles (
 
 -- Tabla Clientes
 CREATE TABLE Clientes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    idcli INT AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(255) NOT NULL,
-    apellidos VARCHAR(255) NOT NULL,
+    apellidoscli VARCHAR(255) NOT NULL,
     correo VARCHAR(255) UNIQUE,
     direccion VARCHAR(255),
     celular VARCHAR(20),
+    ocupacion VARCHAR(20),
     edad INT,
     profesion VARCHAR(255),
     fechaNacimiento DATE,
@@ -34,7 +35,7 @@ CREATE TABLE Clientes (
 CREATE TABLE ClientesComunes (
     id INT PRIMARY KEY,
     metodosPago VARCHAR(255),
-    FOREIGN KEY (id) REFERENCES Clientes(id)
+    FOREIGN KEY (id) REFERENCES Clientes(idcli)
 );
 
 -- Tabla ClientesPotenciales
@@ -42,7 +43,7 @@ CREATE TABLE ClientesPotenciales (
     id INT PRIMARY KEY,
     comoConocioEmpresa VARCHAR(255),
     intereses TEXT,
-    FOREIGN KEY (id) REFERENCES Clientes(id)
+    FOREIGN KEY (id) REFERENCES Clientes(idcli)
 );
 
 -- Tabla Empresas
@@ -94,7 +95,7 @@ CREATE TABLE Administradores (
 -- Insertar datos de ejemplo
 INSERT INTO Roles (nombrerol) VALUES ('Cliente'), ('Administrador'), ('Empresa');
 
-INSERT INTO Clientes (nombres, apellidos, correo, direccion, celular, edad, profesion, fechaNacimiento, idrol, user, pass) VALUES
+INSERT INTO Clientes (nombres, apellidoscli, correo, direccion, celular, edad, profesion, fechaNacimiento, idrol, user, pass) VALUES
 ('Juan', 'Pérez', 'juan@example.com', 'Calle 123', '1234567890', 30, 'Ingeniero', '1993-05-15', 1, 'juanperez', 'pass123');
 
 INSERT INTO ClientesComunes (id, metodosPago) VALUES (1, 'Tarjeta de crédito');
