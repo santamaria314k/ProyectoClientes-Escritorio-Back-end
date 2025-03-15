@@ -1,71 +1,37 @@
-package Models;
+
+package Modelos;
+
+import java.util.Date;
 
 
-public class ClientePotencial {
-    private int id;
-    private String nombres;
-    private String apellidos;
-    private String celular;
-    private int edad;
-    private String ocupacion;
+public class ClientePotencial extends Cliente{
+    private String comoConocioEmpresa;
     private String intereses;
 
-    public ClientePotencial(int id, String nombres, String apellidos, String celular, int edad, String ocupacion, String intereses) {
-        this.id = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.celular = celular;
-        this.edad = edad;
-        this.ocupacion = ocupacion;
+
+
+
+
+    public ClientePotencial(int id, String nombres, String apellidos, String correo, String direccion, String celular, int edad, String profesion, Date fechaNacimiento,Rol idrol,String user,String pass) {
+        super(id, nombres, apellidos, correo, direccion, celular, edad, profesion, fechaNacimiento ,idrol,user,pass);
+    }
+
+    public ClientePotencial(int id, String nombres, String apellidos, String correo, String direccion, String celular, int edad, String profesion, Date fechaNacimiento,Rol idrol,String user,String pass, String comoConocioEmpresa, String intereses ) {
+        super(id, nombres, apellidos, correo, direccion, celular, edad, profesion, fechaNacimiento,idrol,user,pass);
+        this.comoConocioEmpresa = comoConocioEmpresa;
         this.intereses = intereses;
     }
 
-    public int getId() {
-        return id;
+
+
+    //Metodos Accesores Propios de la clase 
+
+    public String getComoConocioEmpresa() {
+        return comoConocioEmpresa;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public String getOcupacion() {
-        return ocupacion;
-    }
-
-    public void setOcupacion(String ocupacion) {
-        this.ocupacion = ocupacion;
+    public void setComoConocioEmpresa(String comoConocioEmpresa) {
+        this.comoConocioEmpresa = comoConocioEmpresa;
     }
 
     public String getIntereses() {
@@ -75,6 +41,6 @@ public class ClientePotencial {
     public void setIntereses(String intereses) {
         this.intereses = intereses;
     }
-    
+
     
 }

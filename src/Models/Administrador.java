@@ -1,86 +1,72 @@
-package Models;
 
-public class Administrador {
+package Modelos;
+
+
+
+public class Administrador  {
+    private int nombreAdmin;
+    private String userAdmin;
+    private String passAdmin;
+    private Rol idrol;
+
     
-    private int idAdministrador;
-    private String nombre;
-    private String apellido;
-    private String usuario;
-    private String contraseña;
-    private String email;
-    private String telefono;
+	public Administrador(int nombreAdmin, String userAdmin, String passAdmin, Rol idrol) {
+		this.nombreAdmin = nombreAdmin;
+		this.userAdmin = userAdmin;
+		this.passAdmin = passAdmin;
+		this.idrol = idrol;
+	}
 
-    public Administrador(int idAdministrador, String nombre, String apellido, String usuario, String contraseña, String email, String telefono) {
-        this.idAdministrador = idAdministrador;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.email = email;
-        this.telefono = telefono;
-    }
 
-    public int getIdAdministrador() {
-        return idAdministrador;
-    }
+	public int getNombreAdmin() {
+		return nombreAdmin;
+	}
 
-    public void setIdAdministrador(int idAdministrador) {
-        this.idAdministrador = idAdministrador;
-    }
 
-    public String getNombre() {
-        return nombre;
-    }
+	public void setNombreAdmin(int nombreAdmin) {
+		this.nombreAdmin = nombreAdmin;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
-    public String getApellido() {
-        return apellido;
-    }
+	public String getUserAdmin() {
+		return userAdmin;
+	}
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
-    public String getUsuario() {
-        return usuario;
-    }
+	public void setUserAdmin(String userAdmin) {
+		this.userAdmin = userAdmin;
+	}
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
-    public String getContraseña() {
-        return contraseña;
-    }
+	public String getPassAdmin() {
+		return passAdmin;
+	}
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
-    public String getEmail() {
-        return email;
-    }
+	public void setPassAdmin(String passAdmin) {
+		this.passAdmin = passAdmin;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public String getTelefono() {
-        return telefono;
-    }
+	public Rol getIdrol() {
+		return idrol;
+	}
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
+
+	public void setIdrol(Rol idrol) {
+		this.idrol = idrol;
+	}
+
+
+
 
     
 
-    
 
-    
-    
+
+
+
+
+
     
 }
