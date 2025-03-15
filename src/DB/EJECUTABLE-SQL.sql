@@ -81,6 +81,16 @@ CREATE TABLE PQRS (
     FOREIGN KEY (idClienteComun) REFERENCES ClientesComunes(id)
 );
 
+-- Tabla Administradores
+CREATE TABLE Administradores (
+    idAdmin INT AUTO_INCREMENT PRIMARY KEY,
+    nombreAdmin VARCHAR(255) NOT NULL,
+    userAdmin VARCHAR(255) UNIQUE NOT NULL,
+    passAdmin VARCHAR(255) NOT NULL,
+    idrol INT,
+    FOREIGN KEY (idrol) REFERENCES Roles(idrol)
+);
+
 -- Insertar datos de ejemplo
 INSERT INTO Roles (nombrerol) VALUES ('Cliente'), ('Administrador'), ('Empresa');
 
@@ -97,3 +107,6 @@ INSERT INTO Clientela (idEmpresa, idClienteComun) VALUES (123456789, 1);
 INSERT INTO OfertasEmpresa (descripcionOferta, nit) VALUES ('Oferta de empleo', 123456789);
 
 INSERT INTO PQRS (tipoComentario, descripcion, idClienteComun) VALUES ('Queja', 'Problema con el servicio', 1);
+
+INSERT INTO Administradores (nombreAdmin, userAdmin, passAdmin, idrol) VALUES
+('Admin Ejemplo', 'admin', 'contraseñaSegura', 2);
