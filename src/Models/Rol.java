@@ -1,5 +1,5 @@
 
-package Modelos;
+package Models;
 
 public class Rol {
     private int  idrol;
