@@ -4,13 +4,13 @@ package Models;
 
 public class ClienteSector {
     private int id;
-    private ClienteComun clienteId;
-    private Sector sectorId;
+    private ClienteComun cliente;
+    private Sector sector;
 
-    public ClienteSector(int id, ClienteComun clienteId, Sector sectorId) {
+    public ClienteSector(int id, ClienteComun cliente, Sector sector) {
         this.id = id;
-        this.clienteId = clienteId;
-        this.sectorId = sectorId;
+        this.cliente = cliente;
+        this.sector = sector;
     }
 
     public int getId() {
@@ -21,21 +21,23 @@ public class ClienteSector {
         this.id = id;
     }
 
-    public ClienteComun getClienteId() {
-        return clienteId;
+    public ClienteComun getCliente() {
+        return cliente;
     }
 
-    public void setClienteId(ClienteComun clienteId) {
-        this.clienteId = clienteId;
+    public void setCliente(ClienteComun cliente) {
+        this.cliente = cliente;
     }
 
-    public Sector getSectorId() {
-        return sectorId;
+    public Sector getSector() {
+        return sector;
     }
 
-    public void setSectorId(Sector sectorId) {
-        this.sectorId = sectorId;
+    public void setSector(Sector sector) {
+        this.sector = sector;
     }
+
+    
     
     
 }
