@@ -15,14 +15,19 @@ import Controllers.ClientePotencialController;
 import Controllers.ClienteController;
 import Models.Cliente;
 
+//rol
+import Models.Rol;
+
 //empresa
 import Controllers.EmpresaController;
 import Models.Empresa;
 
 
 import java.util.Scanner;
-
+import java.util.Date;
 import java.util.InputMismatchException;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 
 
@@ -32,87 +37,114 @@ public class Main {
 
     public static void main(String[] args) {
         
-       
-        
-        Scanner escanear = new Scanner(System.in);
-
-        //cliente ----------------------------vs5 & bd
-        
-        ClienteController clienteController = new ClienteController();
-        
-        String nombres = "";
-        String apellidoscli = "";
-        String celular = "";
-        String ocupacion = "";
-        int edad = 0;
+       Scanner escanear = new Scanner(System.in);
+        ClienteController clienteControl = new ClienteController();
 
         try {
+            String nombres = "";
+            String apellidoscli = "";
+            String correo = "";
+            String direccion = "";
+            String celular = "";
+            String ocupacion = "";
+            int edadCliente = 0;
+            String profesion = "";
+            String fechaNacimientoCliente = "";
+            Rol idrol = new Rol(1, "Cliente");
+            String user = "";
+            String pass = "";
+
             System.out.println("Ingrese los nombres del cliente: ");
             nombres = escanear.nextLine();
-            
+
             System.out.println("Ingrese los apellidos del cliente: ");
             apellidoscli = escanear.nextLine();
-            
+
+            System.out.println("Ingrese el correo del cliente: ");
+            correo = escanear.nextLine();
+
+            System.out.println("Ingrese la direccion del cliente: ");
+            direccion = escanear.nextLine();
+
             System.out.println("Ingrese el celular del cliente: ");
             celular = escanear.nextLine();
-            
+
             System.out.println("Ingrese la ocupacion del cliente: ");
             ocupacion = escanear.nextLine();
-            
-            System.out.println("edad del cliente: ");
-            edad = escanear.nextInt();
-            
-            
-            Cliente clientess = new Cliente(0, nombres, apellidoscli, celular, ocupacion, edad);
-            clienteController.InsertarCliente(clientess);
-            clienteController.MostrarDatosCliente();
 
-            // modificar 
-            int idModificarcli;
-            int opcionModificarcli;
-            String info;
-            int edadModificar;
-
-            System.out.println("Ingrese el id del cliente que desea modificar: ");
-            idModificarcli = escanear.nextInt();
-           
-            System.out.println("Ingrese 1 para modificar nombres, 2 para apellidos, 3 para celular, 4 para ocupacion, 5 para edad: ");
-            opcionModificarcli = escanear.nextInt();
+            System.out.println("Ingrese la edad: ");
+            edadCliente = escanear.nextInt();
             escanear.nextLine();
 
-            if(opcionModificarcli == 5){
-                System.out.println("Ingrese la edad: ");
-                edadModificar = escanear.nextInt();
-                clienteController.ModificarCliente(idModificarcli, opcionModificarcli, "", edadModificar);
-            } else {
+            System.out.println("Ingrese la fecha de nacimiento (YYYY-MM-DD): ");
+            fechaNacimientoCliente = escanear.nextLine();
 
-                System.out.println("Ingrese la informacion: ");
-                info = escanear.nextLine();
-                clienteController.ModificarCliente(idModificarcli, opcionModificarcli, info, 0);
+            System.out.println("Ingrese la profesion del cliente: ");
+            profesion = escanear.nextLine();
+
+            System.out.println("Ingrese el usuario del cliente: ");
+            user = escanear.nextLine();
+
+            System.out.println("Ingrese la contraseña del cliente: ");
+            pass = escanear.nextLine();
+
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            Date fechaNacimiento = formatoFecha.parse(fechaNacimientoCliente);
+
+            Cliente cliente1 = new Cliente(0, nombres, apellidoscli, correo, direccion, celular, ocupacion, edadCliente, profesion, fechaNacimiento, idrol, user, pass);
+            clienteControl.InsertarCliente(cliente1);
+            clienteControl.MostrarDatosCliente();
+
+            String datoCliente = "";
+            int opcionModificacionCliente = 0;
+            int idcliModificacion = 0;
+            int idcliEliminar = 0;
+            int edadClienteModificacion = 0;
+            Date fechaNacimientoClienteModificacion = null;
+
+            System.out.println("Ingrese el ID del cliente que desea modificar: ");
+            idcliModificacion = escanear.nextInt();
+
+            System.out.println("Ingrese 1 para modificar nombres, 2 para apellidos, 3 para correo, 4 para direccion, 5 para celular, 6 para ocupacion, 7 para edad, 8 para profesion, 9 para usuario, 10 para contraseña, 11 para fecha de nacimiento: ");
+            opcionModificacionCliente = escanear.nextInt();
+            escanear.nextLine();
+
+            if (opcionModificacionCliente == 7) {
+                System.out.println("Ingrese la nueva edad: ");
+                edadClienteModificacion = escanear.nextInt();
+                escanear.nextLine();
+            } else if (opcionModificacionCliente == 11) {
+                System.out.println("Ingrese la nueva fecha de nacimiento (YYYY-MM-DD): ");
+                String fechaNacimientoStr = escanear.nextLine();
+                try {
+                    fechaNacimientoClienteModificacion = formatoFecha.parse(fechaNacimientoStr);
+                } catch (ParseException e) {
+                    System.out.println("Error: Formato de fecha incorrecto. Use YYYY-MM-DD.");
+                    return;
+                }
+            } else {
+                System.out.println("Ingrese el dato: ");
+                datoCliente = escanear.nextLine();
             }
 
-            clienteController.MostrarDatosCliente();
+            clienteControl.ModificarCliente(idcliModificacion, String.valueOf(opcionModificacionCliente), datoCliente, edadClienteModificacion, fechaNacimientoClienteModificacion);
+            clienteControl.MostrarDatosCliente();
 
-            // eliminar
-            int idEliminarcli;
+            System.out.println("Ingrese el ID del cliente a eliminar: ");
+            idcliEliminar = escanear.nextInt();
+            clienteControl.EliminarRegistroCliente(idcliEliminar);
+            clienteControl.MostrarDatosCliente();
 
-            System.out.println("Ingrese el id del cliente a eliminar: ");
-            idEliminarcli = escanear.nextInt();
-            clienteController.EliminarRegistroCliente(idEliminarcli);
-            clienteController.MostrarDatosCliente();
-
-        } catch (InputMismatchException  e) {
+        } catch (InputMismatchException e) {
             System.out.println("Error: Ingresaste un tipo de dato incorrecto.");
+        } catch (ParseException e) {
+            System.out.println("Error: Formato de fecha incorrecto. Use YYYY-MM-DD.");
+        } catch (Exception e) {
+            System.out.println("Error de conexión");
+            e.printStackTrace();
         } finally {
-
             System.out.println("--------//------CLIENTE-FIN-------//---------");
         }
-        
-        
-        
-        
-        
-        
         
         
         

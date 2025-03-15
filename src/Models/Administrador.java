@@ -2,7 +2,6 @@
 package Models;
 
 
-
 public class Administrador  {
     private int nombreAdmin;
     private String userAdmin;
