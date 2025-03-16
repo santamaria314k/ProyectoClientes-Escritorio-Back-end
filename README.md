@@ -1,7 +1,7 @@
 
 
 
-- ⚠️⚠️⚠️⚠️⚠️⚠️
+- ⚠️⚠️⚠️⚠️⚠️⚠️!
 - **Faltantes :**
 - 1.Crear las vistas NO Funcionales que no realizen procesos 
 - 2.Crear atributos de tipo **Objeto** para algunas clases 
