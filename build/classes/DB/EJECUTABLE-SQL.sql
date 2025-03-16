@@ -50,8 +50,8 @@ CREATE TABLE ClientesPotenciales (
 CREATE TABLE Empresas (
     nit INT(20) PRIMARY KEY,
     razonSocial VARCHAR(255) NOT NULL,
-    industria VARCHAR(255),
-    descripcionActividades TEXT,
+    telefono VARCHAR(255) NOT NULL,
+    descripcionActividades VARCHAR(255),
     userempresa VARCHAR(255) UNIQUE NOT NULL,
     passempresa VARCHAR(255) NOT NULL
 );
@@ -92,6 +92,21 @@ CREATE TABLE Administradores (
     FOREIGN KEY (idrol) REFERENCES Roles(idrol)
 );
 
+-- Tabla Sectores
+CREATE TABLE Sectores ( 
+    idSector INT AUTO_INCREMENT PRIMARY KEY, 
+    descripcionSector VARCHAR(255) NOT NULL 
+); 
+
+-- Tabla EmpresasSectores
+CREATE TABLE EmpresasSectores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idSector INT,
+    idEmpresa INT,
+    FOREIGN KEY (idSector) REFERENCES Sectores(idSector),
+    FOREIGN KEY (idEmpresa) REFERENCES Empresas(nit)
+);
+
 -- Insertar datos de ejemplo
 INSERT INTO Roles (nombrerol) VALUES ('Cliente'), ('Administrador'), ('Empresa');
 
@@ -100,8 +115,8 @@ INSERT INTO Clientes (nombres, apellidoscli, correo, direccion, celular, edad, p
 
 INSERT INTO ClientesComunes (id, metodosPago) VALUES (1, 'Tarjeta de crédito');
 
-INSERT INTO Empresas (nit, razonSocial, industria, descripcionActividades, userempresa, passempresa) VALUES
-(123456789, 'Empresa A', 'Tecnología', 'Desarrollo de software', 'empresaA', 'passA');
+INSERT INTO Empresas (nit, razonSocial, telefono, descripcionActividades, userempresa, passempresa) VALUES
+(123456789, 'Empresa A', '5489658', 'Desarrollo de software', 'empresaA', 'passA');
 
 INSERT INTO Clientela (idEmpresa, idClienteComun) VALUES (123456789, 1);
 
@@ -111,3 +126,15 @@ INSERT INTO PQRS (tipoComentario, descripcion, idClienteComun) VALUES ('Queja', 
 
 INSERT INTO Administradores (nombreAdmin, userAdmin, passAdmin, idrol) VALUES
 ('Admin Ejemplo', 'admin', 'contraseñaSegura', 2);
+
+INSERT INTO Sectores (id, descripcionSector) 
+VALUES 
+(1, 'Alimenticio'), 
+(2, 'Textil'), 
+(3, 'Química'), 
+(4, 'Militar'), 
+(5, 'Textil'), 
+(6, 'Cementera'), 
+(7, 'Turística'), 
+(8, 'Forestal'), 
+(9, 'Automovilística'); 

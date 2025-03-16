@@ -20,7 +20,10 @@ import Models.Rol;
 
 //empresa
 import Controllers.EmpresaController;
+import Controllers.EmpresaSectorController;
 import Models.Empresa;
+import Models.EmpresaSector;
+import Models.Sector;
 
 
 import java.util.Scanner;
@@ -38,9 +41,9 @@ public class Main {
     public static void main(String[] args) {
         
        Scanner escanear = new Scanner(System.in);
-        ClienteController clienteControl = new ClienteController();
+       ClienteController clienteControl = new ClienteController();
 
-        try {
+        /**try {
             String nombres = "";
             String apellidoscli = "";
             String correo = "";
@@ -144,7 +147,7 @@ public class Main {
             e.printStackTrace();
         } finally {
             System.out.println("--------//------CLIENTE-FIN-------//---------");
-        }
+        }**/
         
         
         
@@ -156,28 +159,73 @@ public class Main {
  try {
             
             EmpresaController empresaControl = new EmpresaController();
+            EmpresaSectorController empresaSectorControl = new EmpresaSectorController();
 
             int nitEmpresa;
             String razonSocialEmpresa = "";
             String telefonoEmpresa = "";
             String actividadEmpresa = "";
+            String userempresa = "";
+            String passempresa = "";
+            int sectorPerteneciente;
 
             System.out.println("Ingrese el nit: ");
             nitEmpresa = escanear.nextInt();
+            escanear.nextLine();
+            
             System.out.println("Ingrese la razon social: ");
-            razonSocialEmpresa = escanear.next();
+            razonSocialEmpresa = escanear.nextLine();
+            
             System.out.println("Ingrese su telefono: ");
-            telefonoEmpresa = escanear.next();
+            telefonoEmpresa = escanear.nextLine();
+            
             System.out.println("Ingrese su actividad: ");
-            actividadEmpresa = escanear.next();
+            actividadEmpresa = escanear.nextLine();
+            
+            System.out.println("Ingrese un nombre de usuario: ");
+            userempresa = escanear.nextLine();
+            
+            System.out.println("Ingrese una contraseña: ");
+            passempresa = escanear.nextLine();
+            
+            System.out.println("Ingrese el numero del sector al que pertenece la empresa. "
+                    + "1. Alimentario "
+                    + "2. Textil "
+                    + "3. Químico "
+                    + "4. Militar "
+                    + "5. Siderúrgica "
+                    + "6. Cementera "
+                    + "7. Turística "
+                    + "8. Forestal "
+                    + "9. Automovilística ");
+            sectorPerteneciente = escanear.nextInt();
 
-            Empresa empresa1 = new Empresa(nitEmpresa, razonSocialEmpresa, telefonoEmpresa, actividadEmpresa);
+            Empresa empresa1 = new Empresa(nitEmpresa, razonSocialEmpresa, telefonoEmpresa, actividadEmpresa, userempresa, passempresa);
             empresaControl.InsertarEmpresa(empresa1);
             empresaControl.MostrarDatos();
+            
+            Sector sector1;
+            switch (sectorPerteneciente){
+                case 1: sector1 = new Sector(sectorPerteneciente, "Alimentario"); break;
+                case 2: sector1 = new Sector(sectorPerteneciente, "Textil"); break;
+                case 3: sector1 = new Sector(sectorPerteneciente, "Químico"); break;
+                case 4: sector1 = new Sector(sectorPerteneciente, "Militar"); break;
+                case 5: sector1 = new Sector(sectorPerteneciente, "Siderúrgica"); break;
+                case 6: sector1 = new Sector(sectorPerteneciente, "Cementera"); break;
+                case 7: sector1 = new Sector(sectorPerteneciente, "Turística"); break;
+                case 8: sector1 = new Sector(sectorPerteneciente, "Forestal"); break;
+                case 9: sector1 = new Sector(sectorPerteneciente, "Automovilística"); break;
+                default: System.out.println("Opción no válida."); return;
+            }
+            
+            EmpresaSector empresaSector1 = new EmpresaSector(1, sector1, empresa1);
+            empresaSectorControl.RegistrarTipoSector(empresaSector1);
+            empresaSectorControl.MostrarSectoresEmpresa();
 
             String datoEmpresa;
             int opcionModificacionEmpresa;
             int nitModificacion;
+            int opcionModificacionSector;
             int nitEliminar;
 
             System.out.println("Ingrese el nit de la empresa que desea modificar: ");
@@ -189,14 +237,30 @@ public class Main {
             escanear.nextLine();
             empresaControl.ModificarEmpresa(nitModificacion, String.valueOf(opcionModificacionEmpresa), datoEmpresa);
             empresaControl.MostrarDatos();
+            System.out.println("Ingrese el numero del sector al que quiere cambiar: " 
+                    + "1. Alimentario "
+                    + "2. Textil "
+                    + "3. Químico "
+                    + "4. Militar "
+                    + "5. Siderúrgica "
+                    + "6. Cementera "
+                    + "7. Turística "
+                    + "8. Forestal "
+                    + "9. Automovilística ");
+            opcionModificacionSector = escanear.nextInt();
+            empresaSectorControl.ModificarEmpresaSector(opcionModificacionSector);
+            empresaControl.MostrarDatos();
+            empresaSectorControl.MostrarSectoresEmpresa();
             
             
+            empresaSectorControl.EliminarEmpresaSector();
             System.out.println("Ingrese el nit de la empresa a eliminar: ");
             nitEliminar = escanear.nextInt();
             empresaControl.EliminarRegistro(nitEliminar);
             empresaControl.MostrarDatos();
 
-        } catch (InputMismatchException e) {
+        }
+catch (InputMismatchException e) {
             System.out.println("Error: Ingresaste un tipo de dato incorrecto.");
         } finally {
              System.out.println("--------//------EMPRESA-FIN-------//---------");
