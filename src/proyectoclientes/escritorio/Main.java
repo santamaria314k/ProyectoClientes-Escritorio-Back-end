@@ -20,9 +20,11 @@ import Models.Rol;
 
 //empresa
 import Controllers.EmpresaController;
+import Controllers.EmpresaOfertaController;
 import Controllers.EmpresaSectorController;
 import Models.Empresa;
 import Models.EmpresaSector;
+import Models.OfertaEmpresa;
 import Models.Sector;
 
 
@@ -160,6 +162,7 @@ public class Main {
             
             EmpresaController empresaControl = new EmpresaController();
             EmpresaSectorController empresaSectorControl = new EmpresaSectorController();
+            EmpresaOfertaController empresaOfertaContol = new EmpresaOfertaController();
 
             int nitEmpresa;
             String razonSocialEmpresa = "";
@@ -168,6 +171,8 @@ public class Main {
             String userempresa = "";
             String passempresa = "";
             int sectorPerteneciente;
+            int idoferta;
+            String oferta;
 
             System.out.println("Ingrese el nit: ");
             nitEmpresa = escanear.nextInt();
@@ -199,10 +204,20 @@ public class Main {
                     + "8. Forestal "
                     + "9. Automovilística ");
             sectorPerteneciente = escanear.nextInt();
+            
+            System.out.println("Ingrese el id de la oferta: ");
+            idoferta = escanear.nextInt();
+            escanear.nextLine();
+            
+            System.out.println("Ingrese la oferta: ");
+            oferta = escanear.nextLine();
 
             Empresa empresa1 = new Empresa(nitEmpresa, razonSocialEmpresa, telefonoEmpresa, actividadEmpresa, userempresa, passempresa);
             empresaControl.InsertarEmpresa(empresa1);
+            OfertaEmpresa ofertaEmpresa1 = new OfertaEmpresa(idoferta, empresa1, oferta);
+            empresaOfertaContol.RegistrarOfertaEmpresa(ofertaEmpresa1);
             empresaControl.MostrarDatos();
+            empresaOfertaContol.MostrarOfertasEmpresas();
             
             Sector sector1;
             switch (sectorPerteneciente){
@@ -223,9 +238,11 @@ public class Main {
             empresaSectorControl.MostrarSectoresEmpresa();
 
             String datoEmpresa;
+            String nuevaOferta;
             int opcionModificacionEmpresa;
             int nitModificacion;
             int opcionModificacionSector;
+            int idofertaModificacion;
             int nitEliminar;
 
             System.out.println("Ingrese el nit de la empresa que desea modificar: ");
@@ -249,15 +266,28 @@ public class Main {
                     + "9. Automovilística ");
             opcionModificacionSector = escanear.nextInt();
             empresaSectorControl.ModificarEmpresaSector(opcionModificacionSector);
+            System.out.println("Ingrese el id de la oferta a modificar: ");
+            idofertaModificacion = escanear.nextInt();
+            escanear.nextLine();
+            
+            System.out.println("Ingrese la oferta modificada: ");
+            nuevaOferta = escanear.nextLine();
+            empresaOfertaContol.ModificarOfertaEmpresa(idofertaModificacion, nuevaOferta);
             empresaControl.MostrarDatos();
             empresaSectorControl.MostrarSectoresEmpresa();
+            empresaOfertaContol.MostrarOfertasEmpresas();
             
             
+            System.out.println("Ingrese el id de la oferta que desea eliminar: ");
+            idoferta = escanear.nextInt();
+            escanear.nextLine();
+            empresaOfertaContol.EliminarOfertaEmpresa(idoferta);
             empresaSectorControl.EliminarEmpresaSector();
             System.out.println("Ingrese el nit de la empresa a eliminar: ");
             nitEliminar = escanear.nextInt();
             empresaControl.EliminarRegistro(nitEliminar);
             empresaControl.MostrarDatos();
+            empresaOfertaContol.MostrarOfertasEmpresas();
 
         }
 catch (InputMismatchException e) {

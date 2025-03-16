@@ -68,7 +68,7 @@ CREATE TABLE Clientela (
 -- Tabla OfertasEmpresa
 CREATE TABLE OfertasEmpresa (
     idoferta INT AUTO_INCREMENT PRIMARY KEY,
-    descripcionOferta TEXT,
+    descripcionOferta VARCHAR(255),
     nit INT(20),
     FOREIGN KEY (nit) REFERENCES Empresas(nit)
 );

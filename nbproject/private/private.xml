@@ -3,9 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/1/OneDrive/Documents/NetBeansProjects/ProyectoClientes-Escritorio/src/Controllers/ClienteController.java</file>
-            <file>file:/C:/Users/1/OneDrive/Documents/NetBeansProjects/ProyectoClientes-Escritorio/src/proyectoclientes/escritorio/Main.java</file>
-            <file>file:/C:/Users/1/OneDrive/Documents/NetBeansProjects/ProyectoClientes-Escritorio/src/Services/ClienteService.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Services/ClienteService.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Models/Sector.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/DB/EJECUTABLE-SQL.sql</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Models/Empresa.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Controllers/EmpresaController.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/proyectoclientes/escritorio/Main.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Models/EmpresaSector.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Controllers/EmpresaSectorController.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Services/EmpresaSectorService.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Services/EmpresaService.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoClientes-Escritorio-Back-end/src/Controllers/ClienteController.java</file>
         </group>
     </open-files>
 </project-private>
