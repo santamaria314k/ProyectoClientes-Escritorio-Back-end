@@ -12,6 +12,7 @@ import Controllers.ClientePotencialController;
 **/
 
 //cliente
+import Controllers.AdministradorController;
 import Controllers.ClienteController;
 import Models.Cliente;
 
@@ -20,6 +21,7 @@ import Models.Rol;
 
 //empresa
 import Controllers.EmpresaController;
+import Models.Administrador;
 import Models.Empresa;
 
 
@@ -38,6 +40,8 @@ public class Main {
     public static void main(String[] args) {
         
        Scanner escanear = new Scanner(System.in);
+       
+       /*
         ClienteController clienteControl = new ClienteController();
 
         try {
@@ -206,7 +210,7 @@ public class Main {
         
         
         
-        
+        */
         
         
         
@@ -215,68 +219,62 @@ public class Main {
       
 
         
-        /**
+        
         
         //administrador ----------------------------vs4
         
-        ClientePotencialController ClientePotencialControl = new ClientePotencialController();
         AdministradorController adminControl = new AdministradorController();
-        int id = 0;
-        String dato = "";
-        String nombre = "";
-        String apellidos = "";
-        String usuario = "";
-        String contraseña = "";
-        String email = "";
-        String telefono = "";
-        
-        System.out.println("Ingrese el Id: ");
-        id = leerDato.nextInt();
-        System.out.println("Ingrese su nombre: ");
-        nombre = leerDato.next();
-        System.out.println("Ingrese su apellido: ");
-        apellidos = leerDato.next();
-        System.out.println("Ingrese el usuario: ");
-        usuario = leerDato.next();
-        System.out.println("Ingrese la contraseña: ");
-        contraseña = leerDato.next();
-        System.out.println("Ingrese su correo: ");
-        email = leerDato.next();
-        System.out.println("Ingrese su teléfono: ");
-        telefono = leerDato.next();
-        
-        Administrador admin1 = new Administrador(id, nombre, apellidos, usuario, contraseña, email, telefono);
-        adminControl.InsertarAdministrador(admin1);
-        adminControl.MostrarDatos();
-        
+        int idAdmin;
+        String nombreAdmin;
+        String userAdmin;
+        String passAdmin;
+        Rol idrol = new Rol(2, "Administrador"); // Se crea solo una vez
 
-        
-        //modificar
-        int idEliminar;
-        int idModificacion;
-        int opcionModificacion;
-        
-        
+        System.out.println("Ingrese el Id: ");
+        idAdmin = escanear.nextInt();
+        escanear.nextLine(); // Consumir nueva línea pendiente
+
+        System.out.println("Ingrese su nombre Admin: ");
+        nombreAdmin = escanear.nextLine();
+
+        System.out.println("Ingrese su user Admin: ");
+        userAdmin = escanear.next();
+
+        System.out.println("Ingrese el pass de admin: ");
+        passAdmin = escanear.next();
+
+        Administrador admin1 = new Administrador(idAdmin, nombreAdmin, userAdmin, passAdmin, idrol);
+        adminControl.RegistrarAdministrador(admin1);
+        adminControl.ImprimirAdministrador();
+
+        // Modificar Administrador
+        String datoAdmin;
+        int idModificacionAdmin;
+        int opcionModificacionAdmin;
+
         System.out.println("Ingrese el id del administrador que desea modificar: ");
-        idModificacion = leerDato.nextInt();
-        System.out.println("Ingrese 1 para modificar nombre, 2 para apellido, 3 para usuario, 4 para correo, 5 para contraseña o 6 para teléfono: ");
-        opcionModificacion = leerDato.nextInt();
-        System.out.println("Ingrese el dato: ");
-        dato = leerDato.next();
-        adminControl.ModificarAdministrador(idModificacion, opcionModificacion, dato);
-        adminControl.MostrarDatos();
-        
-        
-        //eliminar
-        
+        idModificacionAdmin = escanear.nextInt();
+        System.out.println("Ingrese 1 para modificar nombre, 2 para usuario o 3 para contraseña: ");
+        opcionModificacionAdmin = escanear.nextInt();
+        escanear.nextLine(); // Consumir nueva línea pendiente
+
+        System.out.println("Ingrese el nuevo valor: ");
+        datoAdmin = escanear.nextLine();
+
+        adminControl.ModificarAdministrador(opcionModificacionAdmin, datoAdmin, idModificacionAdmin);
+        adminControl.ImprimirAdministrador();
+
+        // Eliminar Administrador
+        int idEliminarAdmin;
         System.out.println("Ingrese el id del admin a eliminar: ");
-        idEliminar = leerDato.nextInt();
-        adminControl.EliminarRegistro(idEliminar);
-        adminControl.MostrarDatos();
-        
-        **/
-        
-        
+        idEliminarAdmin = escanear.nextInt();
+        adminControl.EliminarAdministrador(idEliminarAdmin);
+        adminControl.ImprimirAdministrador();
+
+        escanear.close(); // Cerrar scanner al final
+
+
+
     
         
         
