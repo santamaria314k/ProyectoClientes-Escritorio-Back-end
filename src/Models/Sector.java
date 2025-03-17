@@ -18,6 +18,20 @@ public class Sector {
     public void setId(int id) {
         this.id = id;
     }
+    
+    
+    //------------------acometida
+    
+     public int getIdsector() {
+        return id;
+    }
+
+    public void getIdsector(int id) {
+        this.id = id;
+    }
+  //------------------acometida
+    
+    
 
     public String getDescripcionSector() {
         return descripcionSector;

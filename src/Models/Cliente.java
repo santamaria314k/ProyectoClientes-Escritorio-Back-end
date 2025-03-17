@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 // importante const (ap-cl)
-public class Cliente {
+public class Cliente { 
     private int idcli;
     private String nombres;
     private String apellidoscli;

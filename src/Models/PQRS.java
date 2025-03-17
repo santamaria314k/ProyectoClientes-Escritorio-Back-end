@@ -1,19 +1,16 @@
-
 package Models;
-
 
 public class PQRS {
     private int idPQRS;
     private String tipoComentario;
     private String descripcion;
-    private ClienteComun idClienteComun;
+    private int idComun; // Almacenamos el idComun como un entero
 
-
-    public PQRS(int idPQRS, ClienteComun idClienteComun, String tipoComentario, String descripcion) {
+    public PQRS(int idPQRS, int idComun, String tipoComentario, String descripcion) {
         this.idPQRS = idPQRS;
         this.tipoComentario = tipoComentario;
         this.descripcion = descripcion;
-        this.idClienteComun = idClienteComun;
+        this.idComun = idComun;
     }
 
     public int getIdPQRS() {
@@ -24,12 +21,12 @@ public class PQRS {
         this.idPQRS = idPQRS;
     }
 
-    public ClienteComun getIdClienteComun() {
-        return idClienteComun;
+    public int getIdComun() {
+        return idComun;
     }
 
-    public void setIdClienteComun(ClienteComun idClienteComun) {
-        this.idClienteComun = idClienteComun;
+    public void setIdComun(int idComun) {
+        this.idComun = idComun;
     }
 
     public String getTipoComentario() {
@@ -47,6 +44,4 @@ public class PQRS {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
 }

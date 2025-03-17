@@ -1,9 +1,8 @@
-/**
+
 package Controllers;
 
 import Models.Administrador;
 import Services.AdministradorService;
-
 
 public class AdministradorController {
     public AdministradorService adminService;
@@ -11,23 +10,22 @@ public class AdministradorController {
     public AdministradorController() {
         this.adminService = new AdministradorService();
     }
-    
-    public void InsertarAdministrador(Administrador nuevoAdmin){
-        adminService.CrearAdministrador(nuevoAdmin);
+
+    public void RegistrarAdministrador(Administrador nuevoAdmin) {
+        adminService.RegistrarAdministrador(nuevoAdmin);
     }
-    
-    public void MostrarDatos(){
-        adminService.ImprimirDatos();
+
+    public void ImprimirAdministrador() {
+        adminService.ImprimirAdministrador();
     }
-    
-    public void EliminarRegistro(int id){
-        adminService.EliminarAdmin(id);
+
+    public void EliminarAdministrador(int idAdmin) { 
+        adminService.EliminarAdministrador(idAdmin);
     }
-    
-    public void ModificarAdministrador(int id, int opcion, String dato){
-        adminService.ModificarAdministrador(id, opcion, dato);
+
+    public void ModificarAdministrador(int opcionModificacionAdmin, String datoAdmin, int idAdmin) {
+    adminService.ModificarAdministrador(opcionModificacionAdmin, datoAdmin, idAdmin);
     }
-    
+
 }
 
-* */

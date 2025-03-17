@@ -18,7 +18,7 @@
 #     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
 # This output file may be truncated or incomplete.
 #
-#  Out of Memory Error (os_windows.cpp:3536), pid=16148, tid=13520
+#  Out of Memory Error (os_windows.cpp:3536), pid=2976, tid=11296
 #
 # JRE version:  (19.0.2+7) (build )
 # Java VM: Java HotSpot(TM) 64-Bit Server VM (19.0.2+7-44, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
@@ -27,16 +27,16 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -Dfile.encoding=UTF-8 --module-path=C:\Users\1\OneDrive\Documents\NetBeansProjects\ProyectoClientes-Escritorio\build\classes proyectoclientes.escritorio.Main
+Command Line: -Dfile.encoding=UTF-8 --module-path=C:\Users\1\OneDrive\Documents\NetBeansProjects\ProyectoClientes-Escritorio-Back-end\build\classes proyectoclientes.escritorio.Main
 
 Host: Intel(R) Core(TM) i5-4590 CPU @ 3.30GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5438)
-Time: Wed Mar 12 10:52:08 2025 Hora est. Pacífico, Sudamérica elapsed time: 0.010622 seconds (0d 0h 0m 0s)
+Time: Sun Mar 16 08:24:41 2025 Hora est. Pacífico, Sudamérica elapsed time: 0.012853 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
-Current thread (0x00000213df630d70):  JavaThread "Unknown thread" [_thread_in_vm, id=13520, stack(0x000000962b700000,0x000000962b800000)]
+Current thread (0x0000019ba32a1e70):  JavaThread "Unknown thread" [_thread_in_vm, id=11296, stack(0x0000001b74500000,0x0000001b74600000)]
 
-Stack: [0x000000962b700000,0x000000962b800000]
+Stack: [0x0000001b74500000,0x0000001b74600000]
 Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
 V  [jvm.dll+0x6ee21a]
 V  [jvm.dll+0x85765e]
@@ -65,22 +65,22 @@ C  [ntdll.dll+0x4cc91]
 ---------------  P R O C E S S  ---------------
 
 Threads class SMR info:
-_java_thread_list=0x00007ffad59ed048, length=0, elements={
+_java_thread_list=0x00007ffad2bad048, length=0, elements={
 }
 
 Java Threads: ( => current thread )
 
 Other Threads:
-  0x00000213df68f870 WorkerThread "GC Thread#0" [stack: 0x000000962b800000,0x000000962b900000] [id=9640]
-  0x00000213df6a1550 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000962b900000,0x000000962ba00000] [id=13076]
-  0x00000213df6a2630 WorkerThread "G1 Conc#0" [stack: 0x000000962ba00000,0x000000962bb00000] [id=8516]
+  0x0000019ba33008a0 WorkerThread "GC Thread#0" [stack: 0x0000001b74600000,0x0000001b74700000] [id=6560]
+  0x0000019ba3312580 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000001b74700000,0x0000001b74800000] [id=14668]
+  0x0000019ba3313660 WorkerThread "G1 Conc#0" [stack: 0x0000001b74800000,0x0000001b74900000] [id=4772]
 
-[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffad51ad427]
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffad236d427]
 
 VM state: not at safepoint (not fully initialized)
 
 VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
-[0x00000213df62e480] Heap_lock - owner thread: 0x00000213df630d70
+[0x0000019ba329ea40] Heap_lock - owner thread: 0x0000019ba32a1e70
 
 Heap address: 0x0000000081a00000, size: 2022 MB, Compressed Oops mode: 32-bit
 
@@ -95,13 +95,13 @@ Heap:
  garbage-first heap   total 0K, used 0K [0x0000000081a00000, 0x0000000100000000)
   region size 1024K, 0 young (0K), 0 survivors (0K)
 
-[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffad55b6649]
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffad2776649]
 
 GC Heap History (0 events):
 No events
 
 Dll operation events (1 events):
-Event: 0.006 Loaded shared library C:\Program Files\Java\jdk-19\bin\java.dll
+Event: 0.005 Loaded shared library C:\Program Files\Java\jdk-19\bin\java.dll
 
 Deoptimization events (0 events):
 No events
@@ -126,46 +126,46 @@ No events
 
 
 Dynamic libraries:
-0x00007ff68ef80000 - 0x00007ff68ef90000 	C:\Program Files\Java\jdk-19\bin\java.exe
-0x00007ffb0a1f0000 - 0x00007ffb0a3e8000 	C:\WINDOWS\SYSTEM32\ntdll.dll
-0x00007ffb09630000 - 0x00007ffb096f2000 	C:\WINDOWS\System32\KERNEL32.DLL
-0x00007ffb07df0000 - 0x00007ffb080ef000 	C:\WINDOWS\System32\KERNELBASE.dll
-0x00007ffb07c40000 - 0x00007ffb07d40000 	C:\WINDOWS\System32\ucrtbase.dll
-0x00007ffb02be0000 - 0x00007ffb02bf8000 	C:\Program Files\Java\jdk-19\bin\jli.dll
-0x00007ffb01f10000 - 0x00007ffb01f2b000 	C:\Program Files\Java\jdk-19\bin\VCRUNTIME140.dll
-0x00007ffb0a030000 - 0x00007ffb0a0df000 	C:\WINDOWS\System32\ADVAPI32.dll
-0x00007ffb08b40000 - 0x00007ffb08bde000 	C:\WINDOWS\System32\msvcrt.dll
-0x00007ffb094a0000 - 0x00007ffb0953f000 	C:\WINDOWS\System32\sechost.dll
-0x00007ffb091f0000 - 0x00007ffb09313000 	C:\WINDOWS\System32\RPCRT4.dll
-0x00007ffb07a80000 - 0x00007ffb07aa7000 	C:\WINDOWS\System32\bcrypt.dll
-0x00007ffb083f0000 - 0x00007ffb0858d000 	C:\WINDOWS\System32\USER32.dll
-0x00007ffb07c10000 - 0x00007ffb07c32000 	C:\WINDOWS\System32\win32u.dll
-0x00007ffb08740000 - 0x00007ffb0876b000 	C:\WINDOWS\System32\GDI32.dll
-0x00007ffb080f0000 - 0x00007ffb0820a000 	C:\WINDOWS\System32\gdi32full.dll
-0x00007ffb07b20000 - 0x00007ffb07bbd000 	C:\WINDOWS\System32\msvcp_win.dll
-0x00007ffafb900000 - 0x00007ffafbb9a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
-0x00007ffafd8c0000 - 0x00007ffafd8ca000 	C:\WINDOWS\SYSTEM32\VERSION.dll
-0x00007ffb09820000 - 0x00007ffb0984f000 	C:\WINDOWS\System32\IMM32.DLL
-0x00007ffb04bc0000 - 0x00007ffb04bcc000 	C:\Program Files\Java\jdk-19\bin\vcruntime140_1.dll
-0x00007ffafbf20000 - 0x00007ffafbfae000 	C:\Program Files\Java\jdk-19\bin\msvcp140.dll
-0x00007ffad4e70000 - 0x00007ffad5b30000 	C:\Program Files\Java\jdk-19\bin\server\jvm.dll
-0x00007ffb03ea0000 - 0x00007ffb03ea9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
-0x00007ffb08770000 - 0x00007ffb087db000 	C:\WINDOWS\System32\WS2_32.dll
-0x00007ffaf9fe0000 - 0x00007ffafa007000 	C:\WINDOWS\SYSTEM32\WINMM.dll
-0x00007ffb05730000 - 0x00007ffb05742000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
-0x00007ffb049c0000 - 0x00007ffb049ca000 	C:\Program Files\Java\jdk-19\bin\jimage.dll
-0x00007ffaf70a0000 - 0x00007ffaf7284000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
-0x00007ffaf69e0000 - 0x00007ffaf6a14000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
-0x00007ffb079f0000 - 0x00007ffb07a72000 	C:\WINDOWS\System32\bcryptPrimitives.dll
-0x00007ffafc8a0000 - 0x00007ffafc8c6000 	C:\Program Files\Java\jdk-19\bin\java.dll
+0x00007ff743140000 - 0x00007ff743150000 	C:\Program Files\Java\jdk-19\bin\java.exe
+0x00007ffb25950000 - 0x00007ffb25b48000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffb239e0000 - 0x00007ffb23aa2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffb232e0000 - 0x00007ffb235df000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffb230d0000 - 0x00007ffb231d0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffb00260000 - 0x00007ffb0027b000 	C:\Program Files\Java\jdk-19\bin\VCRUNTIME140.dll
+0x00007ffb1d530000 - 0x00007ffb1d548000 	C:\Program Files\Java\jdk-19\bin\jli.dll
+0x00007ffb246d0000 - 0x00007ffb2477f000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffb25200000 - 0x00007ffb2529e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffb24810000 - 0x00007ffb248af000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffb24510000 - 0x00007ffb24633000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffb22ff0000 - 0x00007ffb23017000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffb24920000 - 0x00007ffb24abd000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffb231d0000 - 0x00007ffb231f2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffb24480000 - 0x00007ffb244ab000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffb23680000 - 0x00007ffb2379a000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffb235e0000 - 0x00007ffb2367d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffb177e0000 - 0x00007ffb17a7a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007ffb17f20000 - 0x00007ffb17f2a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffb250a0000 - 0x00007ffb250cf000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffb0e270000 - 0x00007ffb0e27c000 	C:\Program Files\Java\jdk-19\bin\vcruntime140_1.dll
+0x00007ffae4980000 - 0x00007ffae4a0e000 	C:\Program Files\Java\jdk-19\bin\msvcp140.dll
+0x00007ffad2030000 - 0x00007ffad2cf0000 	C:\Program Files\Java\jdk-19\bin\server\jvm.dll
+0x00007ffb15f00000 - 0x00007ffb15f27000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffb0ff50000 - 0x00007ffb0ff59000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffb248b0000 - 0x00007ffb2491b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffb20e90000 - 0x00007ffb20ea2000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffb0c180000 - 0x00007ffb0c18a000 	C:\Program Files\Java\jdk-19\bin\jimage.dll
+0x00007ffb11a10000 - 0x00007ffb11bf4000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffb11140000 - 0x00007ffb11174000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffb23250000 - 0x00007ffb232d2000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffafacc0000 - 0x00007ffaface6000 	C:\Program Files\Java\jdk-19\bin\java.dll
 
 dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
 symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;C:\Program Files\Java\jdk-19\bin\server
 
 VM Arguments:
-jvm_args: -Dfile.encoding=UTF-8 --module-path=C:\Users\1\OneDrive\Documents\NetBeansProjects\ProyectoClientes-Escritorio\build\classes 
+jvm_args: -Dfile.encoding=UTF-8 --module-path=C:\Users\1\OneDrive\Documents\NetBeansProjects\ProyectoClientes-Escritorio-Back-end\build\classes 
 java_command: proyectoclientes.escritorio.Main
-java_class_path (initial): C:\Users\1\Downloads\mysql-connector-j-9.2.0\mysql-connector-j-9.2.0.jar;C:\Users\1\OneDrive\Documents\NetBeansProjects\ProyectoClientes-Escritorio\build\classes
+java_class_path (initial): C:\Users\1\Downloads\mysql-connector-j-9.2.0\mysql-connector-j-9.2.0.jar;C:\Users\1\OneDrive\Documents\NetBeansProjects\ProyectoClientes-Escritorio-Back-end\build\classes
 Launcher Type: SUN_STANDARD
 
 [Global flags]
@@ -210,12 +210,12 @@ TEMP=C:\Users\1\AppData\Local\Temp
 
 OS:
  Windows 10 , 64 bit Build 19041 (10.0.19041.5438)
-OS uptime: 8 days 18:42 hours
+OS uptime: 0 days 14:56 hours
 
 CPU: total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 60 stepping 3 microcode 0x27, cx8, cmov, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, fma, vzeroupper, clflush, rdtscp
 
-Memory: 4k page, system-wide physical 8082M (1816M free)
-TotalPageFile size 10130M (AvailPageFile size 82M)
+Memory: 4k page, system-wide physical 8082M (2373M free)
+TotalPageFile size 10130M (AvailPageFile size 61M)
 current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
 current process commit charge ("private bytes"): 52M, peak: 180M
 

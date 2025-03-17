@@ -10,12 +10,14 @@ public class EmpresaService {
         Connection conn = DataBase.conectar();
         if (conn != null) {
             try {
-                String sql = "INSERT INTO Empresas (nit, razonsocial, telefono, actividad) VALUES (?, ?, ?, ?)";
+                String sql = "INSERT INTO Empresas (nit, razonsocial, telefono, descripcionActividades, userempresa, passempresa) VALUES (?, ?, ?, ?, ?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setInt(1, empresa.getNit());
                 pstmt.setString(2, empresa.getRazonSocial());
                 pstmt.setString(3, empresa.getTelefono());
                 pstmt.setString(4, empresa.getActividad());
+                pstmt.setString(5, empresa.getUserempresa());
+                pstmt.setString(6, empresa.getPassempresa());
                 pstmt.executeUpdate();
                 System.out.println("Empresa creada exitosamente");
             } catch (SQLException ex) {
@@ -40,7 +42,7 @@ public class EmpresaService {
                     System.out.println("NIT: " + rs.getInt("nit"));
                     System.out.println("RazonSocial: " + rs.getString("razonSocial"));
                     System.out.println("Telefono: " + rs.getString("telefono"));
-                    System.out.println("Actividad: " + rs.getString("actividad"));
+                    System.out.println("Actividad: " + rs.getString("descripcionActividades"));
                     System.out.println("--------------//-----------//----------//-----------//--------");
                 }
             } catch (SQLException ex) {
@@ -82,7 +84,7 @@ public class EmpresaService {
                 switch (seleccion) {
                     case 1: columna = "razonSocial"; break;
                     case 2: columna = "telefono"; break;
-                    case 3: columna = "actividad"; break;
+                    case 3: columna = "descripcionActividades"; break;
                     default: System.out.println("Opción no válida."); return;
                 }
                 String sql = "UPDATE Empresas SET " + columna + " = ? WHERE nit = ?";
