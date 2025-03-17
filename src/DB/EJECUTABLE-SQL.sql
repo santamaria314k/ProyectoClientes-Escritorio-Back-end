@@ -79,7 +79,7 @@ CREATE TABLE PQRS (
     tipoComentario VARCHAR(255),
     descripcion TEXT,
     idClienteComun INT,
-    FOREIGN KEY (idClienteComun) REFERENCES ClientesComunes(id)
+    FOREIGN KEY (idClienteComun) REFERENCES Clientes(idcli) ON DELETE CASCADE
 );
 
 -- Tabla Administradores

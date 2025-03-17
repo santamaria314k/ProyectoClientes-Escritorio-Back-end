@@ -1,3 +1,5 @@
+
+
 package Models;
 
 import java.util.Date;
@@ -6,7 +8,8 @@ public class ClienteComun extends Cliente {
 
     private String metodosPago;
 
-    
+   
+
     
     
     
@@ -24,4 +27,8 @@ public class ClienteComun extends Cliente {
     public void setMetodosPago(String metodosPago) {
         this.metodosPago = metodosPago;
     }
+
+    
 }
+
+

@@ -10,6 +10,11 @@ import Models.ClientePotencial;
 import Controllers.ClientePotencialController;
 
 **/
+//Pqrs
+import Models.ClienteComun;
+import Controllers.PqrsController;
+import Models.PQRS;
+
 
 //cliente
 import Controllers.AdministradorController;
@@ -210,7 +215,7 @@ public class Main {
         
         
         
-        */
+        
         
         
         
@@ -273,15 +278,59 @@ public class Main {
 
         escanear.close(); // Cerrar scanner al final
 
+*/
 
+    //Pqrs ----------------------------vs4
+        
+        PqrsController pqrsControl = new PqrsController(); 
+        int idPQRS;
+        String tipoComentario;
+        String descripcion;
 
-    
-        
-        
-        
-        
-        
-        
+        System.out.println("Ingrese el Id del PQRS: ");
+        idPQRS = escanear.nextInt();
+        escanear.nextLine(); // Consumir nueva línea pendiente
+
+        System.out.println("Ingrese el tipo de comentario: ");
+        tipoComentario = escanear.nextLine();
+
+        System.out.println("Ingrese la descripción: ");
+        descripcion = escanear.nextLine();
+
+        System.out.println("Ingrese el ID del Cliente Común: ");
+        int idClienteComun = escanear.nextInt();
+
+        ClienteComun cliente = new ClienteComun(idClienteComun, "Nombre", "Apellido", "correo@example.com", "Direccion", "123456789", "Ocupacion", 30, "Profesion", null, null, "usuario", "contraseña", "Tarjeta");
+        PQRS pqrs = new PQRS(idPQRS, cliente, tipoComentario, descripcion);
+
+        pqrsControl.RegistrarPqrs(pqrs);
+        pqrsControl.ImprimirPqrs();
+
+        // Modificar PQRS
+        String nuevoValor;
+        int idModificacion;
+        int opcionModificacion;
+
+        System.out.println("Ingrese el id del PQRS que desea modificar: ");
+        idModificacion = escanear.nextInt();
+        System.out.println("Ingrese 1 para modificar el tipo de comentario, 2 para modificar la descripción: ");
+        opcionModificacion = escanear.nextInt();
+        escanear.nextLine(); // Consumir nueva línea pendiente
+
+        System.out.println("Ingrese el nuevo valor: ");
+        nuevoValor = escanear.nextLine();
+
+        pqrsControl.ModificarPqrs(opcionModificacion, nuevoValor, idModificacion);
+        pqrsControl.ImprimirPqrs();
+
+        // Eliminar PQRS
+        int idEliminar;
+        System.out.println("Ingrese el id del PQRS a eliminar: ");
+        idEliminar = escanear.nextInt();
+        pqrsControl.EliminarPqrs(idEliminar);
+        pqrsControl.ImprimirPqrs();
+
+        escanear.close(); // Cerrar scanner al final
         
         
         /**

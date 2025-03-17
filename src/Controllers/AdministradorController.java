@@ -19,7 +19,7 @@ public class AdministradorController {
         adminService.ImprimirAdministrador();
     }
 
-    public void EliminarAdministrador(int idAdmin) {  // Se corrigió el parámetro
+    public void EliminarAdministrador(int idAdmin) { 
         adminService.EliminarAdministrador(idAdmin);
     }
 

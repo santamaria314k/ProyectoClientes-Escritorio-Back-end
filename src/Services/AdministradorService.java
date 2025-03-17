@@ -12,7 +12,7 @@ public class AdministradorService {
             try {
                 String sql = "INSERT INTO Administradores (nombreAdmin, userAdmin, passAdmin, idrol) VALUES (?, ?, ?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setString(1, administrador.getNombreAdmin()); // Ahora es String
+                pstmt.setString(1, administrador.getNombreAdmin()); 
                 pstmt.setString(2, administrador.getUserAdmin());
                 pstmt.setString(3, administrador.getPassAdmin());
                 pstmt.setInt(4, administrador.getIdrol().getIdrol());
@@ -38,7 +38,7 @@ public class AdministradorService {
                 while (rs.next()) {
                     System.out.println("///////////////////////////////////////////////////////");
                     System.out.println("ID Admin: " + rs.getInt("idAdmin"));
-                    System.out.println("Nombre Admin: " + rs.getString("nombreAdmin")); // Ahora es String
+                    System.out.println("Nombre Admin: " + rs.getString("nombreAdmin")); 
                     System.out.println("Usuario Admin: " + rs.getString("userAdmin"));
                     System.out.println("Contraseña: " + rs.getString("passAdmin"));
                     System.out.println("ID Rol: " + rs.getInt("idrol"));
@@ -53,7 +53,7 @@ public class AdministradorService {
         }
     }
 
-    public void EliminarAdministrador(int idAdmin) { // Ahora usa idAdmin en lugar de nombreAdmin
+    public void EliminarAdministrador(int idAdmin) { 
         Connection conn = DataBase.conectar();
         if (conn != null) {
             try {
@@ -92,7 +92,7 @@ public class AdministradorService {
                 String sql = "UPDATE Administradores SET " + columna + " = ? WHERE idAdmin = ?";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
 
-                pstmt.setString(1, info); // Ahora el valor a modificar se pasa correctamente
+                pstmt.setString(1, info); 
                 pstmt.setInt(2, idAdmin); // Filtrado por ID
 
                 int rowsAffected = pstmt.executeUpdate();

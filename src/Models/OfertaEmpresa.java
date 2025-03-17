@@ -22,8 +22,6 @@ public class OfertaEmpresa {
         this.idoferta = idoferta;
     }
 
-   
-
     public String getDescripcionOferta() {
         return descripcionOferta;
     }
@@ -31,8 +29,6 @@ public class OfertaEmpresa {
     public void setDescripcionOferta(String descripcionOferta) {
         this.descripcionOferta = descripcionOferta;
     }
-    
-
 
     public Empresa getNit() {
         return nit;
@@ -42,10 +38,5 @@ public class OfertaEmpresa {
         this.nit = nit;
     }
 
-
-
-
-
-
-    
+ 
 }
